@@ -2,6 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import CityList from '@/components/CityList';
 
 export default function Home() {
   const weatherBackgrounds = {
@@ -25,9 +26,9 @@ export default function Home() {
             border: "dashed",
             borderBlockColor: "black",
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
           }}>
-
+            <CityList cities={["London", "Sydney", "Tokyo", "Toronto", "Paris"]} />
           </Box>
         </Container>
       </Box>
