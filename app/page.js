@@ -6,6 +6,7 @@ import CityList from '@/components/CityList';
 import SearchBar from '@/components/SearchBar';
 import DateTime from '@/components/DateTime';
 import City from '@/components/City';
+import WeatherSummary from '@/components/WeatherSummary';
 
 export default function Home() {
   const weatherBackgrounds = {
@@ -15,7 +16,7 @@ export default function Home() {
     night: "linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)"
   };
 
-  const currentWeather = "clearDay";
+  const currentWeather = "night";
 
   return (
     <>
@@ -57,8 +58,16 @@ export default function Home() {
             }}>
               <DateTime date={"Sunday, 22 June 2025"} time={"5:27 pm"} />
             </Box>
-            <Box>
+            <Box sx={{
+              paddingBottom: "2rem"
+            }}>
               <City city={"Berlin, DE"} />
+            </Box>
+            <Box sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}>
+              <WeatherSummary />
             </Box>
 
           </Box>
