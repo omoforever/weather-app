@@ -9,6 +9,7 @@ import City from '@/components/City';
 import WeatherSummary from '@/components/WeatherSummary';
 import HourlyForecast from '@/components/HourlyForecast';
 import Typography from '@mui/material/Typography';
+import DailyForecast from '@/components/DailyForecast';
 
 export default function Home() {
   const weatherBackgrounds = {
@@ -71,8 +72,13 @@ export default function Home() {
             }}>
               <WeatherSummary />
             </Box>
-            <Box>
+            <Box sx={{
+              marginBottom: "2rem"
+            }}>
               <HourlyForecast />
+            </Box>
+            <Box>
+              <DailyForecast />
             </Box>
 
           </Box>

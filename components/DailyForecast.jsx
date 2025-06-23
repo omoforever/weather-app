@@ -4,15 +4,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
-
-export default function HourlyForecast() {
-
+export default function DailyForecast() {
     const forecastData = [
-        { time: "12:00pm", weatherIcon: <SunnyIcon />, temperature: "21C", weatherType: "sunny" },
-        { time: "13:00pm", weatherIcon: <SunnyIcon />, temperature: "21C", weatherType: "sunny" },
-        { time: "14:00pm", weatherIcon: <CloudIcon />, temperature: "17C", weatherType: "cloudy" },
-        { time: "15:00pm", weatherIcon: <CloudIcon />, temperature: "19C", weatherType: "cloudy" },
-        { time: "16:00pm", weatherIcon: <CloudIcon />, temperature: "18C", weatherType: "cloudy" }
+        { day: "Sat", weatherIcon: <SunnyIcon />, temperature: "21C", weatherType: "sunny" },
+        { day: "Sun", weatherIcon: <SunnyIcon />, temperature: "21C", weatherType: "sunny" },
+        { day: "Mon", weatherIcon: <CloudIcon />, temperature: "17C", weatherType: "cloudy" },
+        { day: "Tue", weatherIcon: <CloudIcon />, temperature: "19C", weatherType: "cloudy" },
+        { day: "Wed", weatherIcon: <CloudIcon />, temperature: "18C", weatherType: "cloudy" }
     ]
 
     const foreCastElements = forecastData.map((forecast, index) => {
@@ -26,7 +24,8 @@ export default function HourlyForecast() {
                 gap: "0.5rem"
             }}>
                 <Box>
-                    <Typography color='white' sx={{ textAlign: 'center' }}>{forecast.time}</Typography>
+                    <Typography color='white' sx={{ textAlign: 'center' }}>{forecast.day}
+                    </Typography>
                 </Box>
                 <Box color={forecast.weatherType === "sunny" ? "yellow" : "white"}>
                     {forecast.weatherIcon}
@@ -45,7 +44,7 @@ export default function HourlyForecast() {
                 flexDirection: "column",
                 gap: "1rem"
             }}>
-                <Typography variant='h4' color='white'>Hourly Forecast</Typography>
+                <Typography variant='h4' color='white'>Daily Forecast</Typography>
                 <Divider sx={{
                     borderColor: "white"
                 }} />
