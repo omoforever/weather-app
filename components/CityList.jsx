@@ -12,23 +12,14 @@ export default function CityList({ cities }) {
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
-        padding: "0.3rem",
-
     }
 
     return (
         <>
             <Box sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 flexWrap: "wrap",
-                gap: {
-                    xs: "0.5rem",  // Mobile: 0.5rem gap
-                    sm: "2rem",    // Small tablets: 1rem gap
-                    md: "5rem",  // Medium screens: 1.5rem gap
-                    lg: "5rem",    // Large screens: 2rem gap
-                    xl: "5rem"   // Extra large: 2.5rem gap
-                }
             }}>
                 {cityList.map((cityName) => (
                     <Button key={cityName} sx={cityListStyle}>

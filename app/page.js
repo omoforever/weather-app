@@ -7,6 +7,8 @@ import SearchBar from '@/components/SearchBar';
 import DateTime from '@/components/DateTime';
 import City from '@/components/City';
 import WeatherSummary from '@/components/WeatherSummary';
+import HourlyForecast from '@/components/HourlyForecast';
+import Typography from '@mui/material/Typography';
 
 export default function Home() {
   const weatherBackgrounds = {
@@ -26,7 +28,7 @@ export default function Home() {
       }}>
         <Container maxWidth="lg" >
           <Box sx={{
-            height: '100vh',
+            minHeight: '100vh',
             display: "flex",
             flexDirection: "column",
           }}>
@@ -39,7 +41,6 @@ export default function Home() {
             <Box sx={{
               display: "flex",
               justifyContent: "center",
-              gap: "1rem",
               width: {
                 xs: "90%",    // Mobile: 90% width
                 sm: "80%",    // Small tablets: 80% width
@@ -66,8 +67,12 @@ export default function Home() {
             <Box sx={{
               display: "flex",
               justifyContent: "center",
+              marginBottom: "3rem"
             }}>
               <WeatherSummary />
+            </Box>
+            <Box>
+              <HourlyForecast />
             </Box>
 
           </Box>

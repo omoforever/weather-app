@@ -9,7 +9,7 @@ export default function WeatherSummary() {
                 display: "flex",
                 flexDirection: "column",
                 width: "100%",
-                gap: "1rem"
+                gap: "3rem"
             }}>
                 <Box sx={{
                     textAlign: 'center'
@@ -18,28 +18,37 @@ export default function WeatherSummary() {
                 </Box>
                 <Box sx={{
                     display: "flex",
-                    justifyContent: "space-around",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     color: "white"
                 }}>
-                    <Box color={"yellow"}><SunnyIcon /></Box>
+
+                    <Box color={"yellow"}>
+                        <SunnyIcon fontSize="large" />
+                    </Box>
                     <Box>
-                        <Typography variant="h5">21C</Typography>
+                        <Typography variant="h4">21C</Typography>
                     </Box>
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
                         gap: "1rem"
                     }}>
-                        <Box>Feels like 20C</Box>
-                        <Box>Humidity: 36%</Box>
-                        <Box>Wind: 9km\h</Box>
+                        <Box>
+                            <Typography>Feels like 20C</Typography>
+                        </Box>
+                        <Box>
+                            <Typography>Humidity: 36%</Typography>
+                        </Box>
+                        <Box>
+                            <Typography>Wind: 9km\h</Typography>
+                        </Box>
                     </Box>
                 </Box>
 
                 <Box sx={{
                     display: 'flex',
-                    justifyContent: "space-around",
+                    justifyContent: "space-between",
                     color: 'white'
 
                 }}>
