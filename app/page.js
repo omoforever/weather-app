@@ -19,17 +19,17 @@ export default function Home() {
     night: "linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)"
   };
 
-  const currentWeather = "night";
+  const currentWeather = "clearDay";
 
   return (
     <>
       <CssBaseline />
       <Box sx={{
         background: weatherBackgrounds[currentWeather],
+        minHeight: 1
       }}>
-        <Container maxWidth="lg" >
+        <Container maxWidth="md" >
           <Box sx={{
-            minHeight: '100vh',
             display: "flex",
             flexDirection: "column",
           }}>
@@ -61,14 +61,10 @@ export default function Home() {
               <DateTime date={"Sunday, 22 June 2025"} time={"5:27 pm"} />
             </Box>
             <Box sx={{
-              paddingBottom: "2rem"
-            }}>
-              <City city={"Berlin, DE"} />
-            </Box>
-            <Box sx={{
               display: "flex",
               justifyContent: "center",
-              marginBottom: "3rem"
+              marginBottom: "3rem",
+              width: "100%"
             }}>
               <WeatherSummary />
             </Box>

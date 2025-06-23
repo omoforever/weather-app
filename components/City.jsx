@@ -13,7 +13,10 @@ export default function City({ city }) {
     return (
         <>
             <Box sx={cityStyle}>
-                <Typography variant="h4">{city}</Typography>
+                <Typography sx={{
+                    fontWeight: "bold",
+                    fontSize: 40
+                }}>{city}</Typography>
             </Box>
         </>
     );

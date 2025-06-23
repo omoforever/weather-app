@@ -5,16 +5,28 @@ export default function DateTime({ date, time }) {
 
     const dateTimeStyle = {
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: '1rem',
+        gap: '0.325rem',
         color: "white"
     }
     return (
         <>
             <Box sx={dateTimeStyle}>
-                <Typography variant="h5">{date}</Typography>
-                <Typography variant="h6">Local time: {time} </Typography>
+                <Typography sx={{
+                    fontWeight: "bold",
+                    fontSize: 24
+
+                }}>
+                    {date}
+                </Typography>
+                <Typography sx={{
+                    fontWeight: "light",
+                    fontSize: 16
+                }}>
+                    Local time: {time}
+                </Typography>
             </Box>
         </>
     );
