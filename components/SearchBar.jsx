@@ -1,12 +1,29 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
+import { useState, useEffect } from 'react';
 
-export default function SearchBar() {
+
+export default function SearchBar({ currentCity, setCurrentCity }) {
+    const [inputValue, setInputValue] = useState(currentCity || '');
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+
+            if (inputValue.trim() && inputValue !== currentCity) {
+                setCurrentCity(inputValue);
+            }
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, [inputValue, setCurrentCity]);
+
+
     return (
         <TextField
             label="Search for city"
             variant="outlined"
             fullWidth
+            onChange={(e) => { setInputValue(e.target.value) }}
             sx={{
                 '& .MuiOutlinedInput-root': {
                     '& fieldset': {
@@ -24,6 +41,9 @@ export default function SearchBar() {
                 },
                 '& .MuiInputLabel-root.Mui-focused': {
                     color: '#F5F5F5', // Focused label: same for consistency
+                },
+                '& .MuiOutlinedInput-input': {
+                    color: '#FFFFFF', // Input text color: white
                 },
             }}
         />

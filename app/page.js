@@ -74,7 +74,7 @@ export default function Home() {
               margin: "0 auto",
               paddingBottom: "2rem"
             }}>
-              <SearchBar />
+              <SearchBar currentCity={currentCity} setCurrentCity={setCurrentCity} />
             </Box>
 
             <Box sx={{
