@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -5,13 +7,14 @@ import Container from '@mui/material/Container';
 import CityList from '@/components/CityList';
 import SearchBar from '@/components/SearchBar';
 import DateTime from '@/components/DateTime';
-import City from '@/components/City';
 import WeatherSummary from '@/components/WeatherSummary';
 import HourlyForecast from '@/components/HourlyForecast';
-import Typography from '@mui/material/Typography';
 import DailyForecast from '@/components/DailyForecast';
 
+
 export default function Home() {
+  const [currentCity, setCurrentCity] = React.useState("London");
+
   const weatherBackgrounds = {
     sunrise: "linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%)",
     clearDay: "linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%)",
@@ -20,6 +23,17 @@ export default function Home() {
   };
 
   const currentWeather = "night";
+
+  React.useEffect(() => {
+    fetch(`/api/weather?city=${currentCity}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(error => {
+        console.error(error.message)
+      });
+  }, [currentCity]);
 
   return (
     <>
@@ -36,7 +50,7 @@ export default function Home() {
             <Box sx={{
               marginBlock: "2rem",
             }}>
-              <CityList cities={["London", "Sydney", "Tokyo", "Toronto", "Paris"]} />
+              <CityList cities={["London", "Sydney", "Tokyo", "Toronto", "Paris"]} currentCity={currentCity} setCurrentCity={setCurrentCity} />
             </Box>
 
             <Box sx={{
@@ -73,10 +87,11 @@ export default function Home() {
             }}>
               <HourlyForecast />
             </Box>
-            <Box>
+            <Box sx={{
+              marginBottom: '5rem'
+            }}>
               <DailyForecast />
             </Box>
-
           </Box>
         </Container>
       </Box>

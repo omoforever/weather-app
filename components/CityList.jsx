@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography"
 
-export default function CityList({ cities }) {
+export default function CityList({ cities, setCurrentCity }) {
 
     const cityList = cities;
     const cityListStyle = {
@@ -22,7 +22,7 @@ export default function CityList({ cities }) {
                 flexWrap: "wrap",
             }}>
                 {cityList.map((cityName) => (
-                    <Button key={cityName} sx={cityListStyle}>
+                    <Button key={cityName} sx={cityListStyle} onClick={() => setCurrentCity(cityName)}>
                         <Typography>{cityName}</Typography>
                     </Button>
                 ))}
