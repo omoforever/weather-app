@@ -19,7 +19,7 @@ export default function Home() {
     night: "linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)"
   };
 
-  const currentWeather = "clearDay";
+  const currentWeather = "night";
 
   return (
     <>

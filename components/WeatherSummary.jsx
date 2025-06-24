@@ -31,17 +31,19 @@ export default function WeatherSummary() {
                             fontSize: 16,
                             fontWeight: "regular",
                             backgroundColor: "transparent",
-                            color: 'white'
+                            color: 'white',
+                            marginBottom: "1rem"
                         }} />
 
                         <Box sx={{
                             display: "flex",
                             justifyContent: "center",
+                            alignItems: "center",
                             alignContent: "center",
-                            gap: "1rem"
+                            gap: "1.5rem"
                         }}>
                             <Box color={"yellow"}>
-                                <SunnyIcon fontSize="large" />
+                                <SunnyIcon sx={{ fontSize: 64 }} />
                             </Box>
                             <Box color={"white"}>
                                 <Typography variant="h4">21C</Typography>
@@ -68,7 +70,7 @@ export default function WeatherSummary() {
                                 gap: '0.1rem'
                             }}>
                                 <ThermostatIcon />
-                                <Typography>Feels like 20C</Typography>
+                                <Typography>Feels like:  20C</Typography>
                             </Box>
                             <Box component={Paper} sx={{
                                 background: "inherit",
