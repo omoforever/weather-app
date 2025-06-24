@@ -8,7 +8,22 @@ import ThermostatIcon from '@mui/icons-material/Thermostat';
 import AirIcon from '@mui/icons-material/Air';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 
-export default function WeatherSummary() {
+function extractCityEnds(fullName) {
+    if (!fullName || typeof fullName !== 'string') {
+        return { first: '', last: '' };
+    }
+
+    const parts = fullName.split(',').map(part => part.trim());
+
+    return {
+        first: parts[0] || '',
+        last: parts[parts.length - 1] || ''
+    };
+}
+
+
+export default function WeatherSummary({ cityName }) {
+    const { first, last } = extractCityEnds(cityName);
     return (
         <>
             <Box sx={{
@@ -26,7 +41,7 @@ export default function WeatherSummary() {
                         padding: "3rem",
                         textAlign: "center"
                     }}>
-                        <City city={"Berlin, DE"} />
+                        <City city={`${first}, ${last}`} />
                         <Chip label="Clear" sx={{
                             fontSize: 16,
                             fontWeight: "regular",

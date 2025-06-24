@@ -14,6 +14,7 @@ import DailyForecast from '@/components/DailyForecast';
 
 export default function Home() {
   const [currentCity, setCurrentCity] = React.useState("London");
+  const [cityWeatherData, setCityWeatherData] = React.useState();
 
   const weatherBackgrounds = {
     sunrise: "linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%)",
@@ -28,12 +29,19 @@ export default function Home() {
     fetch(`/api/weather?city=${currentCity}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        setCityWeatherData(data);
       })
       .catch(error => {
         console.error(error.message)
       });
   }, [currentCity]);
+
+  if (!cityWeatherData) {
+    console.log("Fetching data...")
+  }
+  else {
+    console.log(cityWeatherData)
+  }
 
   return (
     <>
@@ -80,7 +88,7 @@ export default function Home() {
               marginBottom: "3rem",
               width: "100%"
             }}>
-              <WeatherSummary />
+              <WeatherSummary cityName={cityWeatherData?.resolvedAddress || ""} />
             </Box>
             <Box sx={{
               marginBottom: "2rem"
